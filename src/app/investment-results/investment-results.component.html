@@ -1,22 +1,35 @@
-<p>{{table}}</p>
 
-<table>
-    <thead>
-      <tr>
-        <th>year</th>
-        <th>interest</th>
-        <th>valueEndOfYear</th>
-        <th>annualInvestment</th>
-        <th>totalInterest</th>
-        <th>totalAmountInvested</th>
-      </tr>
-    </thead>
+@if (table?.length == 0) {
+    <p class= "center"> enter valid input metrics for the investment !</p>
+}
+@else {
+    <table class="center">
+        <thead>
+          <tr>
+            <th>year</th>
+            <th>interest</th>
+            <th>valueEndOfYear</th>
+            <th>annualInvestment</th>
+            <th>totalInterest</th>
+            <th>totalAmountInvested</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          @for (result of table; track result.year) {
+            <tr>
+                <td>{{result.year}}</td>
+                <td>{{result.interest}}</td>
+                <td>{{result.valueEndOfYear}}</td>
+                <td>{{result.annualInvestment}}</td>
+                <td>{{result.totalInterest}}</td>
+                <td>{{result.totalAmountInvested}}</td> 
+            </tr>
+          }
+          
+        </tbody>
+    </table>   
+}
 
-    <tbody>
-      <tr>
-        <td>January</td>
-        
-      </tr>
-    </tbody>
-</table>   
+
 
