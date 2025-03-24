@@ -12,9 +12,11 @@ import { Metrics } from './user-input/metrics.model';
 })
 export class AppComponent {
   
-
+  Data: Array<{ year: number; interest: number; valueEndOfYear: number; annualInvestment: number; totalInterest: number; totalAmountInvested: number; }> = [];
   onCalculateInvestment (data: Metrics) {
+    
     const annualData = [];
+
     let investmentValue = data.initial_inv;
   
     for (let i = 0; i < data.duration; i++) {
@@ -34,5 +36,11 @@ export class AppComponent {
     }
   
     //this.emitData.emit(annualData);
-    console.log(annualData)  }
+    this.Data = annualData 
+    console.log(this.Data);
+  }
+
+    retAnnualData () {
+      return this.Data;
+    }
 }
