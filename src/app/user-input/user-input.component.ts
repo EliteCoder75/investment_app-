@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { Metrics } from './metrics.model';
 @Component({
   selector: 'app-user-input',
   standalone: true,
@@ -10,12 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class UserInputComponent {
 
-  @Output() emitData: EventEmitter<{
-    initial_inv : number;
-    annual_inv : number;
-    expected_ret : number;
-    duration : number;
-  }> = new EventEmitter();
+  @Output() emitData: EventEmitter<Metrics> = new EventEmitter();
 
   //default values
   initial_inv = '0';

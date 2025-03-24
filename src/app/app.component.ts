@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentResultsComponent } from './investment-results/investment-results.component';
+import { Metrics } from './user-input/metrics.model';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,7 @@ import { InvestmentResultsComponent } from './investment-results/investment-resu
 export class AppComponent {
   
 
-  onCalculateInvestment (data: {
-    initial_inv : number;
-    annual_inv : number;
-    expected_ret : number;
-    duration : number;
-  }) {
+  onCalculateInvestment (data: Metrics) {
     const annualData = [];
     let investmentValue = data.initial_inv;
   
