@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, signal } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import { InvestmentResultsComponent } from './investment-results/investment-results.component';
@@ -12,7 +12,7 @@ import { Metrics } from './user-input/metrics.model';
 })
 export class AppComponent {
   
-  Data: Array<{ year: number; interest: number; valueEndOfYear: number; annualInvestment: number; totalInterest: number; totalAmountInvested: number; }> = [];
+  Data = signal <{ year: number; interest: number; valueEndOfYear: number; annualInvestment: number; totalInterest: number; totalAmountInvested: number; }[] | undefined> (undefined);
   onCalculateInvestment (data: Metrics) {
     
     const annualData = [];
@@ -36,11 +36,9 @@ export class AppComponent {
     }
   
     //this.emitData.emit(annualData);
-    this.Data = annualData 
-    console.log(this.Data);
+    this.Data.set(annualData); 
+    //console.log(this.Data);
   }
 
-    retAnnualData () {
-      return this.Data;
-    }
+  
 }
